@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Archivo digital de consulta de la obra, los escritos y el pensamiento del arquitecto Claudio Caveri (1928–2011). Sección de Senda(s) de Caveri.">
+<meta property="og:title" content="Archivo Claudio Caveri">
+<meta property="og:description" content="Obras, escritos, prensa y pensamiento del arquitecto Claudio Caveri (1928–2011).">
+<meta property="og:image" content="img/50-el-jacaranda.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Cpath d='M0 40V16C0 8 9 2 16 0c7 2 16 8 16 16v24z' fill='%23B23F2A'/%3E%3C/svg%3E">
+<title>Archivo Claudio Caveri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+/* Layout: cal (whitewash) ground, monte-green ink, a red zócalo base on every section like the Trujui buildings;
+   images framed by an ojival arch; signaturas in mono like an archive call number. */
+:root{
+  --cal:#E9E6DD;         /* lime-washed wall, slightly green-grey */
+  --cal-2:#DEDACD;       /* shaded wall */
+  --monte:#1F2B23;       /* ink: Senda(s) dark green */
+  --monte-2:#55605A;     /* muted ink */
+  --zocalo:#B23F2A;      /* red plinth of Comunidad Tierra */
+  --vitral:#2B5797;      /* rosetón blue */
+  --linea:#C4C0B2;
+  --sobre:#F4F2EC;       /* raised paper */
+  --t-vi:#8A6A3A; --t-te:#B23F2A; --t-re:#2B5797; --t-ct:#4F7A3A; --t-op:#6A4F86; --t-co:#3F7F86; --t-mu:#9A7B1E;
+  --f-disp:"Gloock", "Bodoni 72", Didot, Georgia, serif;
+  --f-text:"Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --cal:#151B17; --cal-2:#1C241F; --monte:#E6E2D6; --monte-2:#A3AA9F; --zocalo:#D9644B; --vitral:#86A9E0; --linea:#333D36; --sobre:#1A211C;
+  --t-vi:#C9A46B; --t-te:#E07A62; --t-re:#86A9E0; --t-ct:#8DB874; --t-op:#B39BD1; --t-co:#7EC0C6; --t-mu:#D6B65A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --cal:#151B17; --cal-2:#1C241F; --monte:#E6E2D6; --monte-2:#A3AA9F; --zocalo:#D9644B; --vitral:#86A9E0; --linea:#333D36; --sobre:#1A211C;
+  --t-vi:#C9A46B; --t-te:#E07A62; --t-re:#86A9E0; --t-ct:#8DB874; --t-op:#B39BD1; --t-co:#7EC0C6; --t-mu:#D6B65A; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--cal);color:var(--monte);font-family:var(--f-text);font-size:1.08rem;line-height:1.6;font-optical-sizing:auto}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--cal)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--vitral);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-disp);font-weight:400;text-wrap:balance;line-height:1.08;margin:0}
+h2{font-size:clamp(2rem,4.6vw,3.3rem)}
+h3{font-size:1.5rem}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
+.muted{color:var(--monte-2)}
+.lead{font-size:1.22rem;max-width:62ch}
+.prose{max-width:66ch;display:grid;gap:1em}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--cal);border-bottom:1px solid var(--linea)}
+header.top .wrap{display:flex;align-items:center;gap:20px;padding-block:10px;flex-wrap:wrap}
+.marca{font-family:var(--f-disp);font-size:1.25rem;text-decoration:none;white-space:nowrap}
+.marca small{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;margin-left:8px;color:var(--monte-2)}
+nav.secs{display:flex;gap:2px;flex-wrap:wrap;flex:1}
+nav.secs a{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:6px 9px;border-radius:2px}
+nav.secs a[aria-current="page"]{background:var(--monte);color:var(--cal)}
+nav.secs a:hover{background:var(--cal-2)}
+nav.secs a[aria-current="page"]:hover{background:var(--monte)}
+.buscar{position:relative}
+.buscar input{font:inherit;font-size:.95rem;background:var(--sobre);color:var(--monte);border:1px solid var(--linea);border-radius:2px;padding:6px 10px;width:200px;max-width:60vw}
+.tema{font-family:var(--f-mono);font-size:.7rem;background:none;border:1px solid var(--linea);color:var(--monte);padding:6px 8px;cursor:pointer;border-radius:2px}
+#resultados{position:absolute;right:0;top:calc(100% + 6px);width:min(440px,92vw);max-height:60vh;overflow:auto;background:var(--sobre);border:1px solid var(--linea);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:30}
+#resultados a{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;padding:10px 12px;text-decoration:none;border-bottom:1px solid var(--linea)}
+#resultados a:hover,#resultados a:focus{background:var(--cal-2)}
+#resultados .vacio{padding:12px}
+
+/* sections */
+section.vista{padding-block:48px 0}
+section.vista > .wrap{display:grid;gap:32px}
+.zocalo{height:14px;background:var(--zocalo);margin-top:56px}
+.cabecera{display:grid;gap:12px;max-width:820px}
+
+/* arch frame */
+.ojiva{clip-path:url(#ojiva);-webkit-clip-path:url(#ojiva)}
+.ojiva img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:end}
+.hero h1{font-size:clamp(3.2rem,9vw,7.2rem);letter-spacing:-.01em}
+.hero .fechas{font-family:var(--f-mono);font-size:.9rem;letter-spacing:.2em;margin-top:6px}
+.hero .arco{aspect-ratio:4/5;max-width:100%;background:var(--cal-2)}
+.hero .pie{font-size:.85rem;margin-top:8px}
+.epigrafe{border-left:3px solid var(--zocalo);padding-left:18px;font-style:italic;font-size:1.3rem;max-width:42ch}
+.epigrafe cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--monte-2);margin-top:8px}
+.puertas{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.puerta{display:grid;grid-template-rows:auto 1fr;text-decoration:none;background:var(--sobre);border-bottom:6px solid var(--zocalo)}
+.puerta .ojiva{aspect-ratio:3/2.3;background:var(--cal-2)}
+.puerta div.tx{padding:14px 16px 18px;display:grid;gap:6px;align-content:start}
+.puerta h3{font-size:1.45rem}
+.puerta:hover h3{color:var(--zocalo)}
+.cifras{display:flex;flex-wrap:wrap;gap:28px 48px;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding-block:18px}
+.cifras div{display:grid}
+.cifras b{font-family:var(--f-disp);font-weight:400;font-size:2.2rem;line-height:1;font-variant-numeric:tabular-nums}
+
+/* filters */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;padding:6px 10px;border:1px solid var(--linea);background:var(--sobre);color:var(--monte);border-radius:20px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.chip i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.chip[aria-pressed="true"]{background:var(--monte);color:var(--cal);border-color:var(--monte)}
+select.sel{font-family:var(--f-mono);font-size:.74rem;padding:6px 8px;background:var(--sobre);color:var(--monte);border:1px solid var(--linea);border-radius:2px}
+
+/* catálogo */
+.grilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:30px 22px}
+.ficha-c{display:grid;gap:8px;text-decoration:none;cursor:pointer;background:none;border:0;padding:0;text-align:left;color:inherit;font:inherit}
+.ficha-c .ojiva{aspect-ratio:3/4;background:var(--cal-2)}
+.ficha-c .sig{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.ficha-c h3{font-size:1.25rem}
+.ficha-c:hover h3{color:var(--zocalo)}
+.punto{width:10px;height:10px;border-radius:50%;flex:none}
+.estado{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor;padding:1px 6px;border-radius:10px}
+
+/* timeline */
+.tl-modo{display:flex;gap:8px}
+.espiral-box{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:start}
+.espiral-box svg{width:100%;height:auto;max-width:720px;display:block}
+.espiral-box svg .marca-o{cursor:pointer}
+.espiral-box svg .marca-o:hover circle,.espiral-box svg .marca-o:focus circle{stroke:var(--monte);stroke-width:2}
+.detalle-tl{background:var(--sobre);border-top:6px solid var(--zocalo);padding:20px;display:grid;gap:12px;position:sticky;top:90px}
+.detalle-tl .ojiva{aspect-ratio:4/3}
+.linea-box{overflow-x:auto;border:1px solid var(--linea);background:var(--sobre)}
+.linea-box svg{display:block}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.85rem}
+.leyenda span{display:inline-flex;gap:6px;align-items:center}
+
+/* escritos */
+.libros{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:34px 24px}
+.libro{display:grid;gap:10px;align-content:start}
+.libro .tapa{aspect-ratio:2/3;background:var(--cal-2);overflow:hidden;box-shadow:6px 6px 0 var(--cal-2);border:1px solid var(--linea)}
+.libro .tapa img{width:100%;height:100%;object-fit:cover;display:block}
+.libro .tapa.sin{display:grid;place-items:center;padding:14px;font-family:var(--f-disp);text-align:center;font-size:1.2rem}
+.libro h3{font-size:1.15rem}
+.libro p{font-size:.95rem}
+table.lista{width:100%;border-collapse:collapse;font-size:.97rem}
+table.lista th,table.lista td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--linea);vertical-align:top}
+table.lista th{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;color:var(--monte-2)}
+table.lista td.n{font-variant-numeric:tabular-nums;white-space:nowrap;font-family:var(--f-mono);font-size:.82rem}
+.tabla{overflow-x:auto}
+.dos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+
+/* pensamiento */
+.constelacion{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;background:var(--linea);border:1px solid var(--linea)}
+.concepto{background:var(--cal);padding:22px;display:grid;gap:12px;align-content:start}
+.concepto h3{font-size:2rem}
+.concepto .sub{font-style:italic;color:var(--monte-2)}
+.concepto blockquote{margin:0;font-size:1.12rem;font-style:italic;border-left:3px solid var(--zocalo);padding-left:12px}
+.concepto blockquote cite{display:block;font-style:normal;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.05em;text-transform:uppercase;color:var(--monte-2);margin-top:4px}
+.concepto .preg{background:var(--sobre);padding:12px 14px;border:1px dashed var(--linea);font-size:.98rem}
+.concepto .preg b{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;display:block;color:var(--vitral);margin-bottom:4px}
+.enlaces{display:flex;flex-wrap:wrap;gap:6px}
+.enlaces button{font-family:var(--f-mono);font-size:.66rem;background:none;border:1px solid var(--linea);color:var(--monte);padding:3px 8px;border-radius:12px;cursor:pointer}
+.enlaces button:hover{border-color:var(--zocalo);color:var(--zocalo)}
+.filminas{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.filminas button{padding:0;border:1px solid var(--linea);background:var(--sobre);cursor:zoom-in;aspect-ratio:4/3;overflow:hidden}
+.filminas img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* fondo */
+.arbol{display:grid;gap:0;border-top:2px solid var(--monte)}
+.serie{display:grid;grid-template-columns:110px minmax(0,1fr) 90px 80px;gap:16px;padding:14px 0;border-bottom:1px solid var(--linea);align-items:baseline}
+.serie .cod{font-family:var(--f-mono);font-size:.8rem}
+.serie .cant{font-family:var(--f-mono);font-size:.8rem;text-align:right;font-variant-numeric:tabular-nums}
+.serie .barra{grid-column:2/-1;height:6px;background:var(--cal-2);position:relative}
+.serie .barra i{position:absolute;inset:0 auto 0 0;background:var(--monte-2)}
+.isad{display:grid;grid-template-columns:200px minmax(0,1fr);border-top:1px solid var(--linea)}
+.isad dt,.isad dd{margin:0;padding:10px 0;border-bottom:1px solid var(--linea)}
+.isad dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--monte-2);padding-right:14px}
+.notas{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.nota{border:1px solid var(--linea);padding:16px;display:grid;gap:6px;background:var(--sobre)}
+.nota b{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;font-weight:500;color:var(--zocalo)}
+
+/* vida */
+.vida{display:grid;gap:0;border-left:2px solid var(--monte);margin-left:6px}
+.vida div{display:grid;grid-template-columns:70px minmax(0,1fr);gap:14px;padding:10px 0 10px 18px;position:relative}
+.vida div::before{content:"";position:absolute;left:-7px;top:18px;width:12px;height:12px;background:var(--cal);border:2px solid var(--zocalo);border-radius:50%}
+.vida b{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums}
+.retratos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.retratos figure{margin:0;display:grid;gap:6px}
+.retratos button{padding:0;border:0;background:var(--cal-2);aspect-ratio:3/4;overflow:hidden;cursor:zoom-in}
+.retratos img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.25)}
+figcaption{font-size:.82rem;color:var(--monte-2)}
+
+/* obra detail */
+dialog{border:0;padding:0;max-width:min(1100px,96vw);width:100%;max-height:94vh;background:var(--cal);color:var(--monte);box-shadow:0 20px 70px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(15,20,16,.72)}
+.dlg{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);height:min(90vh,880px)}
+.dlg .izq{background:var(--cal-2);display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0}
+.dlg .principal{display:grid;place-items:center;min-height:0;padding:14px}
+.dlg .principal img{max-width:100%;max-height:66vh;object-fit:contain;cursor:zoom-in}
+.tira{display:flex;gap:6px;overflow-x:auto;padding:8px 14px 14px}
+.tira button{flex:none;width:72px;height:56px;padding:0;border:2px solid transparent;background:none;cursor:pointer}
+.tira button[aria-current="true"]{border-color:var(--zocalo)}
+.tira img{width:100%;height:100%;object-fit:cover;display:block}
+.dlg .der{padding:26px 26px 30px;overflow:auto;display:grid;gap:16px;align-content:start;border-bottom:10px solid var(--zocalo)}
+.cerrar{position:absolute;right:10px;top:10px;font-family:var(--f-mono);font-size:.75rem;background:var(--monte);color:var(--cal);border:0;padding:7px 10px;cursor:pointer;z-index:2}
+.tecnica{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:.92rem}
+.tecnica dt{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;color:var(--monte-2);padding-top:3px}
+.tecnica dd{margin:0}
+.ubic{font-family:var(--f-mono);font-size:.72rem;background:var(--sobre);border:1px solid var(--linea);padding:8px 10px;word-break:break-word}
+#lightbox{max-width:98vw;max-height:98vh;background:#0e110f}
+#lightbox img{display:block;max-width:96vw;max-height:92vh;margin:auto}
+#lightbox .cerrar{background:var(--zocalo)}
+
+footer{background:var(--monte);color:var(--cal);padding-block:36px 40px;margin-top:0}
+footer .wrap{display:grid;gap:14px;grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+footer a{color:var(--cal)}
+
+@media (max-width:860px){
+  .hero,.espiral-box,.dos,.dlg,footer .wrap{grid-template-columns:minmax(0,1fr)}
+  .detalle-tl{position:static}
+  .dlg{height:auto}
+  .dlg .der{overflow:visible}
+  .dlg .principal img{max-height:52vh}
+  nav.secs{order:3;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  header.top .wrap{gap:10px 12px}
+  .buscar{margin-left:auto}
+  dialog{overflow:auto}
+  .serie{grid-template-columns:80px minmax(0,1fr) 70px}
+  .serie .gb{display:none}
+  .isad{grid-template-columns:minmax(0,1fr)}
+  .isad dt{border-bottom:0;padding-bottom:0}
+  .retratos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .buscar input{width:150px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><clipPath id="ojiva" clipPathUnits="objectBoundingBox">
+    <path d="M0,1 L0,0.40 C0,0.19 0.22,0.05 0.5,0 C0.78,0.05 1,0.19 1,0.40 L1,1 Z"/>
+  </clipPath></defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="#inicio">Archivo Caveri<small>SENDA(S)</small></a>
+    <nav class="secs" aria-label="Secciones">
+      <a href="#obras">Obras</a>
+      <a href="#tiempo">Tiempo</a>
+      <a href="#escritos">Escritos</a>
+      <a href="#pensamiento">Pensamiento</a>
+      <a href="#vida">Vida</a>
+      <a href="#fondo">Fondo</a>
+      <a href="#sendas">Senda(s)</a>
+    </nav>
+    <div class="buscar">
+      <label for="q" class="mono" style="position:absolute;left:-9999px">Buscar en el archivo</label>
+      <input id="q" type="search" placeholder="Buscar: Olmos, Kusch, 1965…" autocomplete="off">
+      <div id="resultados" hidden></div>
+    </div>
+    <button class="tema" id="tema" type="button" aria-label="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<main>
+<!-- INICIO -->
+<section class="vista" id="inicio" data-vista>
+  <div class="wrap">
+    <div class="hero">
+      <div style="display:grid;gap:26px">
+        <p class="mono muted">Fondo documental · arquitecto · Argentina</p>
+        <div>
+          <h1>Claudio<br>Caveri</h1>
+          <p class="fechas">1928 — 2011</p>
+        </div>
+        <p class="lead">Obras, escritos, prensa, charlas y fotografías de un arquitecto que buscó una arquitectura americana bajando a la tierra: desde Fátima en Martínez hasta Comunidad Tierra en Trujui, El Jacarandá en Reconquista y la espiral de Maschwitz.</p>
+        <blockquote class="epigrafe">Donde estés cava profundamente; debajo de tus pies está la fuente.<cite>Nietzsche, con quien Caveri abrió su reportaje “Una obra en espiral”</cite></blockquote>
+      </div>
+      <figure style="margin:0">
+        <div class="arco ojiva"><img src="img/50-el-jacaranda.jpg" alt="El Jacarandá en Reconquista: cubiertas piramidales de ladrillo y arcos blancos en la llanura"></div>
+        <figcaption class="pie">El Jacarandá, Reconquista, Santa Fe (1964–1966). Fotografía de Javier Mendiondo.</figcaption>
+      </figure>
+    </div>
+
+    <div class="cifras" id="cifras"></div>
+
+    <div class="puertas" id="puertas"></div>
+
+    <div class="dos">
+      <div class="prose">
+        <h2>Un archivo que sigue en obra</h2>
+        <p>Después de la muerte de su padre en 2011, Esteban Caveri empezó a reunir planos, fotografías, recortes y libros dispersos. En 2013 armó la serie <em>Celebrando la obra de Claudio Caveri</em>, 43 láminas que este sitio usa como columna vertebral del catálogo. Su advertencia sigue valiendo: la selección no está completa, porque la obra de Caveri no fue solo construida o proyectada sino también pensada y escrita en más de diez libros.</p>
+        <p>Este sitio ordena ese material como un fondo de archivo: cada obra tiene una signatura, una ficha técnica, la ubicación exacta en la carpeta digital y sus documentos asociados. La organización respeta las carpetas originales y las vuelve consultables.</p>
+      </div>
+      <div class="prose">
+        <h3>Cómo leerlo</h3>
+        <p><b>Obras</b> es el catálogo razonado, filtrable por tipo y década. <b>Tiempo</b> dibuja la vida y la obra en una espiral, la figura que Caveri eligió para su última capilla. <b>Escritos</b> reúne los once libros y los inéditos. <b>Pensamiento</b> cruza doce ideas con las obras donde se vuelven materia, y deja abierta una pregunta en cada una. <b>Fondo</b> describe el archivo con normas de descripción archivística y señala lo que falta.</p>
+      </div>
+    </div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+
+<!-- OBRAS -->
+<section class="vista" id="obras" data-vista hidden>
+  <div class="wrap">
+    <div class="cabecera">
+      <p class="mono muted">Serie OB · Obras y proyectos</p>
+      <h2>Catálogo de obras</h2>
+      <p class="lead">Cada ficha reúne datos técnicos, la memoria de la obra, sus imágenes y la lámina original del archivo. La signatura combina fondo, serie, tipología y número de carpeta.</p>
+    </div>
+    <div class="filtros" id="f-tipos" role="group" aria-label="Filtrar por tipo"></div>
+    <div class="filtros">
+      <label class="mono muted" for="f-decada">Década</label>
+      <select class="sel" id="f-decada"></select>
+      <label class="mono muted" for="f-estado">Estado</label>
+      <select class="sel" id="f-estado">
+        <option value="">todos</option><option value="construida">construida</option><option value="proyecto">proyecto</option><option value="concurso">concurso</option><option value="inconclusa">inconclusa</option>
+      </select>
+      <span class="mono muted" id="f-cuenta"></span>
+    </div>
+    <div class="grilla" id="grilla"></div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+
+<!-- TIEMPO -->
+<section class="vista" id="tiempo" data-vista hidden>
+  <div class="wrap">
+    <div class="cabecera">
+      <p class="mono muted">1928 — 2011 · y después</p>
+      <h2>Una obra en espiral</h2>
+      <p class="lead">La línea de tiempo arranca en el centro con su nacimiento y se abre una vuelta cada quince años. Los círculos son obras, los cuadrados libros, los rombos hechos de vida. Retoma el borrador de Miro de Senda(s) y lo pone en la figura que Caveri usó para Maschwitz: un círculo que no se cierra.</p>
+    </div>
+    <div class="filtros tl-modo" role="group" aria-label="Modo de la línea de tiempo">
+      <button class="chip" id="m-espiral" aria-pressed="true" type="button">Espiral</button>
+      <button class="chip" id="m-linea" aria-pressed="false" type="button">Línea por tipología</button>
+    </div>
+    <div class="leyenda" id="leyenda"></div>
+    <div class="espiral-box" id="espiral-box">
+      <div id="espiral"></div>
+      <aside class="detalle-tl" id="detalle-tl" aria-live="polite"></aside>
+    </div>
+    <div class="linea-box" id="linea-box" hidden><div id="linea"></div></div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+
+<!-- ESCRITOS -->
+<section class="vista" id="escritos" data-vista hidden>
+  <div class="wrap">
+    <div class="cabecera">
+      <p class="mono muted">Serie ES · Libros, apuntes y publicaciones</p>
+      <h2>Escritos</h2>
+      <p class="lead">Once libros entre 1967 y 2006, casi todos en editoriales pequeñas, cuadernos del Colegio de Arquitectos o fotoduplicados en la escuela. El archivo guarda todos digitalizados en PDF.</p>
+    </div>
+    <div class="libros" id="libros"></div>
+    <div class="dos">
+      <div>
+        <h3 style="margin-bottom:12px">Apuntes e inéditos</h3>
+        <div class="tabla"><table class="lista" id="ineditos"><thead><tr><th>Título</th><th>Fecha</th><th>Soporte</th></tr></thead><tbody></tbody></table></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px">Sobre Caveri</h3>
+        <div class="tabla"><table class="lista" id="sobre"><thead><tr><th>Título</th><th>Autor / edición</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:12px">Hemeroteca</h3>
+      <div class="tabla"><table class="lista" id="prensa"><thead><tr><th>Año</th><th>Medio</th><th>Número / fecha</th><th>Tema</th></tr></thead><tbody></tbody></table></div>
+      <div class="filminas" id="recortes" style="margin-top:18px"></div>
+    </div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+
+<!-- PENSAMIENTO -->
+<section class="vista" id="pensamiento" data-vista hidden>
+  <div class="wrap">
+    <div class="cabecera">
+      <p class="mono muted">Constelación de ideas</p>
+      <h2>Pensamiento</h2>
+      <p class="lead">Caveri se pensaba desde Kusch, Zubiri, Weil, Nietzsche, Chesterton, Heidegger y Deleuze, y desde Wright, Gaudí, Barragán y Berni. Cada idea remite a las obras donde se vuelve muro, cubierta o recorrido, y termina en una pregunta que el archivo no resuelve.</p>
+    </div>
+    <div class="constelacion" id="constelacion"></div>
+    <div class="dos">
+      <div class="prose">
+        <h3>Filminas de clase</h3>
+        <p>Caveri enseñaba con collages: estampas de la historia europea, recortes de revistas y fotos de sus obras pegados sobre cartulina negra. Son el modo más directo de ver su pensamiento como montaje. Se conservan más de 270 en el archivo y 40 presentaciones de charlas.</p>
+      </div>
+      <div class="filminas" id="filminas"></div>
+    </div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+
+<!-- VIDA -->
+<section class="vista" id="vida" data-vista hidden>
+  <div class="wrap">
+    <div class="cabecera">
+      <p class="mono muted">Serie FP · Fotografía personal y correspondencia</p>
+      <h2>Vida</h2>
+      <p class="lead">Arquitecto, carpintero, albañil, director de escuela, funcionario municipal y ensayista. Ocho hijos, una comunidad y una escuela que todavía funciona.</p>
+    </div>
+    <div class="dos">
+      <div class="vida" id="cronologia"></div>
+      <div style="display:grid;gap:18px;align-content:start">
+        <div class="retratos" id="retratos"></div>
+        <div class="prose">
+          <h3>El maestro: Damián Bayón</h3>
+          <p>Caveri lo consideraba su verdadero maestro. A los 16 años Bayón le hizo leer a Nietzsche y le regaló a Chesterton. El archivo guarda dos cartas de Bayón (1991 y 1994) y el obituario publicado en La Nación en 1995. En Y América ¿qué? hay una nota titulada <em>Esa casa mía sin planos y la deuda con D. Bayón</em>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+
+<!-- FONDO -->
+<section class="vista" id="fondo" data-vista hidden>
+  <div class="wrap">
+    <div class="cabecera">
+      <p class="mono muted">Descripción según ISAD(G)</p>
+      <h2>El fondo documental</h2>
+      <p class="lead">Cómo está compuesto el archivo digital, qué contiene cada serie y qué decisiones de conservación conviene tomar antes de que los formatos envejezcan.</p>
+    </div>
+    <dl class="isad" id="isad"></dl>
+    <div>
+      <h3 style="margin-bottom:6px">Cuadro de clasificación</h3>
+      <p class="muted" style="margin-bottom:12px">Series derivadas de las carpetas originales. Archivos y volumen relevados el 18 de octubre de 2026.</p>
+      <div class="arbol" id="arbol"></div>
+    </div>
+    <div class="dos">
+      <div>
+        <h3 style="margin-bottom:12px">Presentaciones y charlas</h3>
+        <div class="tabla"><table class="lista" id="charlas"><thead><tr><th>Título del archivo .ppt</th></tr></thead><tbody></tbody></table></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px">Audiovisual</h3>
+        <div class="tabla"><table class="lista" id="videos"><thead><tr><th>Título</th><th>Tipo</th><th>Formato</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:12px">Notas del archivista</h3>
+      <div class="notas" id="notas"></div>
+    </div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+
+<!-- SENDAS -->
+<section class="vista" id="sendas" data-vista hidden>
+  <div class="wrap">
+    <div class="cabecera">
+      <p class="mono muted">Sendas abiertas, sendas compartidas</p>
+      <h2>Senda(s)</h2>
+      <p class="lead">Este archivo es la sección de consulta de Senda(s) de Caveri, el sitio de encuentros que lleva fuera de la academia las discusiones sobre su obra.</p>
+    </div>
+    <div class="dos">
+      <div class="prose">
+        <p>Senda(s) nace como homenaje y como compromiso con un conocimiento compartido, crítico y riguroso frente a las transformaciones sociales, urbanas y territoriales del nuevo siglo. Las jornadas recorren las obras en el lugar, con quienes las habitan.</p>
+        <p><a href="https://sites.google.com/view/sendasde-c-caveri/inicio" target="_blank" rel="noopener">Ir a Senda(s) de Caveri</a> · <a href="https://miro.com/app/board/uXjVKnCE3RE=/" target="_blank" rel="noopener">Borrador de la línea de tiempo en Miro</a></p>
+        <p class="muted">Sendas: El Salado y Bragado, Esteban Caveri, Javier Mendiondo, Juan Patricio Addesso.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px">Encuentros</h3>
+        <div class="tabla"><table class="lista" id="encuentros"><thead><tr><th>Fecha</th><th>Lugar</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </div>
+  <div class="zocalo"></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:grid;gap:8px">
+      <p style="font-family:var(--f-disp);font-size:1.6rem">Archivo Claudio Caveri</p>
+      <p style="font-size:.95rem;max-width:60ch">Recopilación: Esteban Caveri. Organización, descripción y sitio de consulta: Senda(s), Juan Patricio Addesso. Fotografías: Estudio Caveri, Boggio Videla, Gustavo Sosa Pinilla, C. A. Pereyra Moine, Javier Mendiondo y autores no identificados. Las imágenes se publican en baja resolución con fines de estudio; los originales en alta resolución forman parte del fondo.</p>
+    </div>
+    <p class="mono" style="align-self:end">Signatura del fondo: AR-CC · 1950–2016</p>
+  </div>
+</footer>
+
+<dialog id="obra-dlg" aria-labelledby="obra-t"></dialog>
+<dialog id="lightbox"><button class="cerrar" type="button" data-cerrar>Cerrar ✕</button><img alt=""></dialog>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const IMG=n=>"img/"+n+".jpg";
+const sig=o=>"AR-CC.OB."+o.tipo+"."+(o.n||"s/n");
+const ordenadas=[...OBRAS].sort((a,b)=>(a.y??9999)-(b.y??9999));
+
+/* tema */
+const root=document.documentElement;
+try{const t=localStorage.getItem("cc-tema"); if(t) root.dataset.theme=t;}catch(e){}
+$("#tema").addEventListener("click",()=>{
+  const dark=root.dataset.theme? root.dataset.theme==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme=dark?"light":"dark";
+  try{localStorage.setItem("cc-tema",root.dataset.theme)}catch(e){}
+});
+
+/* ruteo */
+const VISTAS=$$("[data-vista]").map(s=>s.id);
+function ir(){
+  let h=(location.hash||"#inicio").slice(1);
+  let obra=null;
+  if(h.startsWith("obra-")){obra=h.slice(5); h="obras";}
+  if(!VISTAS.includes(h)) h="inicio";
+  $$("[data-vista]").forEach(s=>s.hidden=s.id!==h);
+  $$("nav.secs a").forEach(a=>{ if(a.getAttribute("href")==="#"+h) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  if(obra){ const o=OBRAS.find(x=>x.id===obra); if(o) abrirObra(o,false); }
+  else window.scrollTo({top:0});
+}
+addEventListener("hashchange",ir);
+
+/* inicio */
+const totLib=LIBROS.length;
+$("#cifras").innerHTML=[
+  [OBRAS.length,"obras y proyectos catalogados"],[totLib,"libros publicados"],["2.619","archivos digitales"],["21,9 GB","de fondo digital"],[CHARLAS.length,"charlas y clases"]
+].map(([b,t])=>`<div><b>${b}</b><span class="mono muted">${t}</span></div>`).join("");
+const PUERTAS=[
+ ["obras","Obras","Casas, templos, retiros, escuelas, cárceles y concursos: 1950–2002.","iglesia-de-fatima-vista"],
+ ["tiempo","Tiempo","La vida y la obra trazadas en espiral, desde 1928.","cupula-espiral"],
+ ["escritos","Escritos","Once libros, inéditos y la hemeroteca de cinco décadas.","pdf-y-america-que-ed-sintaxis-2006"],
+ ["pensamiento","Pensamiento","Doce ideas, de cavar a echar raíces, con sus preguntas abiertas.","diapositiva2"],
+ ["vida","Vida","Bayón, Comunidad Tierra, la escuela, Moreno, Olmos.","claudio-caveri-a-los-20-anos"],
+ ["fondo","Fondo","El archivo descrito como fondo documental y lo que falta hacer.","comunidad-2"]
+];
+$("#puertas").innerHTML=PUERTAS.map(([h,t,d,i])=>`<a class="puerta" href="#${h}"><div class="ojiva"><img loading="lazy" src="${IMG(i)}" alt=""></div><div class="tx"><h3>${t}</h3><p class="muted">${d}</p></div></a>`).join("");
+
+/* obras: filtros */
+let fTipo=new Set(), fDec="", fEst="";
+$("#f-tipos").innerHTML=Object.entries(TIPOS).map(([k,v])=>`<button class="chip" type="button" data-t="${k}" aria-pressed="false"><i style="background:${v.c}"></i>${v.n}</button>`).join("");
+$$("#f-tipos .chip").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.t; fTipo.has(k)?fTipo.delete(k):fTipo.add(k); b.setAttribute("aria-pressed",fTipo.has(k)); pintarGrilla();}));
+const decadas=[...new Set(OBRAS.filter(o=>o.y).map(o=>Math.floor(o.y/10)*10))].sort();
+$("#f-decada").innerHTML=`<option value="">todas</option>`+decadas.map(d=>`<option value="${d}">${d}s</option>`).join("")+`<option value="sf">sin fecha</option>`;
+$("#f-decada").addEventListener("change",e=>{fDec=e.target.value;pintarGrilla()});
+$("#f-estado").addEventListener("change",e=>{fEst=e.target.value;pintarGrilla()});
+function primera(o){return o.imgs.find(i=>!i.startsWith("ficha"))||o.imgs[0]}
+function pintarGrilla(){
+  const L=ordenadas.filter(o=>(!fTipo.size||fTipo.has(o.tipo))&&(!fEst||o.est===fEst)&&(!fDec||(fDec==="sf"?!o.y:o.y&&Math.floor(o.y/10)*10==fDec)));
+  $("#f-cuenta").textContent=L.length+" de "+OBRAS.length;
+  $("#grilla").innerHTML=L.map(o=>`<button class="ficha-c" type="button" data-o="${o.id}">
+    <div class="ojiva"><img loading="lazy" src="${IMG(primera(o))}" alt="${esc(o.t)}"></div>
+    <div class="sig"><span class="mono muted">${esc(sig(o))}</span><span class="punto" style="background:${TIPOS[o.tipo].c}" title="${TIPOS[o.tipo].n}"></span></div>
+    <h3>${esc(o.t)}</h3>
+    <div class="sig"><span class="muted" style="font-size:.92rem">${esc(o.yl)} · ${esc(o.lugar.split(",").slice(-1)[0].trim())}</span><span class="estado muted">${o.est}</span></div>
+  </button>`).join("")||`<p class="muted">Ninguna obra cumple esos filtros.</p>`;
+  $$("#grilla .ficha-c").forEach(b=>b.addEventListener("click",()=>location.hash="obra-"+b.dataset.o));
+}
+pintarGrilla();
+
+/* obra detail */
+const dlg=$("#obra-dlg");
+function abrirObra(o){
+  const libs=LIBROS.filter(l=>CONCEPTOS.some(c=>c.obras.includes(o.id)&&c.libros.includes(l.id)));
+  const conc=CONCEPTOS.filter(c=>c.obras.includes(o.id));
+  dlg.innerHTML=`<button class="cerrar" type="button" data-cerrar>Cerrar ✕</button>
+  <div class="dlg">
+    <div class="izq">
+      <div class="principal"><img id="dlg-img" src="${IMG(o.imgs[0])}" alt="${esc(o.t)}"></div>
+      <div class="tira">${o.imgs.map((i,k)=>`<button type="button" data-i="${i}" aria-current="${k===0}" aria-label="Imagen ${k+1}${i.startsWith("ficha")?" (lámina del archivo)":""}"><img loading="lazy" src="${IMG(i)}" alt=""></button>`).join("")}</div>
+    </div>
+    <div class="der">
+      <p class="mono muted">${esc(sig(o))} · ${TIPOS[o.tipo].n}</p>
+      <h2 id="obra-t" style="font-size:clamp(1.8rem,3.4vw,2.6rem)">${esc(o.t)}</h2>
+      ${o.alt?`<p class="muted" style="margin-top:-8px">${esc(o.alt)}</p>`:""}
+      <dl class="tecnica">
+        <dt>Fecha</dt><dd>${esc(o.yl)}</dd>
+        <dt>Lugar</dt><dd>${esc(o.lugar)}</dd>
+        <dt>Autoría</dt><dd>${esc(o.aut)}</dd>
+        ${o.sup?`<dt>Superficie</dt><dd>${o.sup} cubiertos</dd>`:""}
+        <dt>Estado</dt><dd>${o.est}${o.premio?" · "+esc(o.premio):""}</dd>
+      </dl>
+      <p>${esc(o.txt)}</p>
+      ${o.cita?`<blockquote class="epigrafe" style="font-size:1.1rem">${esc(o.cita[0])}<cite>${esc(o.cita[1])}</cite></blockquote>`:""}
+      ${conc.length?`<div><p class="mono muted" style="margin-bottom:6px">Ideas en juego</p><div class="enlaces">${conc.map(c=>`<button type="button" data-c="${c.id}">${esc(c.t)}</button>`).join("")}</div></div>`:""}
+      ${libs.length?`<div><p class="mono muted" style="margin-bottom:6px">Leer en</p><p style="font-size:.95rem">${libs.map(l=>`<i>${esc(l.t.split(".")[0])}</i> (${l.y})`).join(" · ")}</p></div>`:""}
+      ${o.fuente?`<p class="muted" style="font-size:.9rem">Fuente: ${esc(o.fuente)}</p>`:""}
+      <div><p class="mono muted" style="margin-bottom:6px">Ubicación en el fondo digital</p><div class="ubic">Archivo Claudio Caveri / ${esc(o.carpeta)}</div></div>
+    </div>
+  </div>`;
+  $$("#obra-dlg .tira button").forEach(b=>b.addEventListener("click",()=>{$("#dlg-img").src=IMG(b.dataset.i);$$("#obra-dlg .tira button").forEach(x=>x.setAttribute("aria-current",x===b))}));
+  $("#dlg-img").addEventListener("click",e=>verGrande(e.target.getAttribute("src")));
+  $$("#obra-dlg [data-c]").forEach(b=>b.addEventListener("click",()=>{dlg.close();location.hash="pensamiento";setTimeout(()=>{const el=document.getElementById("c-"+b.dataset.c); el&&el.scrollIntoView({block:"start"})},60)}));
+  if(!dlg.open) dlg.showModal();
+}
+dlg.addEventListener("click",e=>{ if(e.target.matches("[data-cerrar]")||e.target===dlg) dlg.close(); });
+dlg.addEventListener("close",()=>{ if(location.hash.startsWith("#obra-")) history.replaceState(null,"","#obras"); });
+const lb=$("#lightbox");
+function verGrande(src){lb.querySelector("img").src=src; lb.showModal();}
+lb.addEventListener("click",()=>lb.close());
+
+/* espiral */
+const W=760,C=W/2, Y0=1928, Y1=2020, PER=15, R0=26, RS=(C-60)/((Y1-Y0)/PER);
+const pos=(y,off=0)=>{const t=(y-Y0)/PER, a=t*2*Math.PI-Math.PI/2, r=R0+t*RS+off; return [C+r*Math.cos(a), C+r*Math.sin(a)];};
+const EVENTOS=[
+  ...OBRAS.filter(o=>o.y).map(o=>({k:"o",y:o.y,id:o.id,t:o.t,c:TIPOS[o.tipo].c,o})),
+  ...LIBROS.map(l=>({k:"l",y:l.y,id:l.id,t:l.t,c:"var(--vitral)",l})),
+  ...VIDA.map(v=>({k:"v",y:v[0],id:"v"+v[0],t:v[1],c:"var(--monte-2)"}))
+];
+function dibujarEspiral(){
+  let path="";
+  for(let y=Y0;y<=Y1;y+=0.2){const [x,yy]=pos(y); path+=(path?"L":"M")+x.toFixed(1)+","+yy.toFixed(1);}
+  let s=`<svg viewBox="0 0 ${W} ${W}" role="img" aria-label="Línea de tiempo en espiral 1928–2020"><path d="${path}" fill="none" stroke="var(--linea)" stroke-width="18" stroke-linecap="round"/><path d="${path}" fill="none" stroke="var(--monte-2)" stroke-width="1" stroke-dasharray="2 4"/>`;
+  for(let y=1930;y<=2020;y+=10){const [x,yy]=pos(y,-24); s+=`<text x="${x}" y="${yy}" text-anchor="middle" dominant-baseline="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--monte-2)">${y}</text>`;}
+  const cuenta={};
+  EVENTOS.sort((a,b)=>a.y-b.y).forEach((e,i)=>{
+    const k=e.y+e.k; cuenta[k]=(cuenta[k]||0)+1;
+    const off=(e.k==="o"?0:e.k==="l"?13:-12)+(cuenta[k]-1)*(e.k==="o"?7:5)*(cuenta[k]%2?1:-1);
+    const [x,y]=pos(e.y+(cuenta[k]-1)*0.25,off);
+    const sh=e.k==="o"?`<circle cx="${x}" cy="${y}" r="6.5" fill="${e.c}" stroke="var(--cal)" stroke-width="1.5"/>`:
+      e.k==="l"?`<rect x="${x-5}" y="${y-5}" width="10" height="10" fill="${e.c}" stroke="var(--cal)" stroke-width="1.5"/>`:
+      `<rect x="${x-4}" y="${y-4}" width="8" height="8" transform="rotate(45 ${x} ${y})" fill="${e.c}"/>`;
+    s+=`<g class="marca-o" tabindex="0" role="button" data-e="${i}" aria-label="${esc(e.y+": "+e.t)}"><title>${esc(e.y+" · "+e.t.slice(0,90))}</title>${sh}</g>`;
+  });
+  s+=`<text x="${C}" y="${C}" text-anchor="middle" dominant-baseline="middle" font-family="Gloock, serif" font-size="13" fill="var(--zocalo)">1928</text></svg>`;
+  $("#espiral").innerHTML=s;
+  $$("#espiral .marca-o").forEach(g=>{
+    const f=()=>mostrarEvento(EVENTOS[g.dataset.e]);
+    g.addEventListener("click",f); g.addEventListener("focus",f);
+    g.addEventListener("keydown",ev=>{if(ev.key==="Enter"){const e=EVENTOS[g.dataset.e]; if(e.k==="o") location.hash="obra-"+e.id;}});
+  });
+  mostrarEvento(EVENTOS.find(e=>e.id==="jacaranda"));
+}
+function mostrarEvento(e){
+  const box=$("#detalle-tl");
+  if(e.k==="o"){const o=e.o; box.innerHTML=`<p class="mono muted">${o.yl} · ${TIPOS[o.tipo].n}</p><div class="ojiva"><img src="${IMG(primera(o))}" alt=""></div><h3>${esc(o.t)}</h3><p class="muted">${esc(o.lugar)}</p><p style="font-size:.97rem">${esc(o.txt.split(". ").slice(0,2).join(". "))}.</p><p><a href="#obra-${o.id}">Abrir la ficha completa</a></p>`;}
+  else if(e.k==="l"){const l=e.l; box.innerHTML=`<p class="mono muted">${l.y} · libro ${l.ord}</p>${l.cov?`<img src="${IMG(l.cov)}" alt="" style="max-height:220px;width:auto;border:1px solid var(--linea)">`:""}<h3>${esc(l.t)}</h3><p class="muted">${esc(l.ed)}</p><p style="font-size:.97rem">${esc(l.d)}</p><p><a href="#escritos">Ir a Escritos</a></p>`;}
+  else {box.innerHTML=`<p class="mono muted">${e.y} · vida</p><p style="font-size:1.15rem">${esc(e.t)}</p><p><a href="#vida">Ir a la cronología</a></p>`;}
+}
+function dibujarLinea(){
+  const X0=1945,X1=2025,px=26,ML=190,H=46, tipos=Object.keys(TIPOS), WW=ML+(X1-X0)*px+30, HH=60+(tipos.length+1)*H;
+  const X=y=>ML+(y-X0)*px;
+  let s=`<svg width="${WW}" height="${HH}" viewBox="0 0 ${WW} ${HH}" role="img" aria-label="Línea de tiempo por tipología">`;
+  // bandas de vida
+  [[1958,1975,"Comunidad Tierra"],[1984,1988,"Función pública en Moreno"],[1988,1990,"Programa Olmos"]].forEach(([a,b,t])=>{s+=`<rect x="${X(a)}" y="30" width="${(b-a)*px}" height="${HH-40}" fill="var(--cal-2)"/><text x="${X(a)+4}" y="24" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--monte-2)">${t}</text>`;});
+  for(let y=1950;y<=X1;y+=5){s+=`<line x1="${X(y)}" x2="${X(y)}" y1="30" y2="${HH-10}" stroke="var(--linea)"/>${y%10==0?`<text x="${X(y)}" y="${HH-0}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--monte-2)">${y}</text>`:""}`;}
+  tipos.forEach((k,i)=>{const yy=50+i*H; s+=`<text x="10" y="${yy+5}" font-family="Newsreader, serif" font-size="14" fill="var(--monte)">${TIPOS[k].n}</text>`;
+    OBRAS.filter(o=>o.tipo===k&&o.y).forEach(o=>{const x=X(o.y), w=Math.max(10,((o.y1||o.y)-o.y)*px); s+=`<a href="#obra-${o.id}"><rect x="${x}" y="${yy-7}" width="${w}" height="14" rx="7" fill="${TIPOS[k].c}" opacity=".85"><title>${esc(o.yl+" · "+o.t)}</title></rect></a>`;});
+  });
+  const yl=50+tipos.length*H; s+=`<text x="10" y="${yl+5}" font-family="Newsreader, serif" font-size="14" fill="var(--monte)">Libros</text>`;
+  LIBROS.forEach(l=>{s+=`<rect x="${X(l.y)-6}" y="${yl-6}" width="12" height="12" fill="var(--vitral)"><title>${esc(l.y+" · "+l.t)}</title></rect>`;});
+  s+=`</svg>`; $("#linea").innerHTML=s;
+}
+$("#leyenda").innerHTML=Object.values(TIPOS).map(t=>`<span><span class="punto" style="background:${t.c}"></span>${t.n}</span>`).join("")+`<span><span style="width:10px;height:10px;background:var(--vitral);display:inline-block"></span>Libros</span><span><span style="width:8px;height:8px;background:var(--monte-2);display:inline-block;transform:rotate(45deg)"></span>Vida</span>`;
+dibujarEspiral(); dibujarLinea();
+$("#m-espiral").addEventListener("click",()=>{$("#espiral-box").hidden=false;$("#linea-box").hidden=true;$("#m-espiral").setAttribute("aria-pressed","true");$("#m-linea").setAttribute("aria-pressed","false")});
+$("#m-linea").addEventListener("click",()=>{$("#espiral-box").hidden=true;$("#linea-box").hidden=false;$("#m-espiral").setAttribute("aria-pressed","false");$("#m-linea").setAttribute("aria-pressed","true")});
+
+/* escritos */
+$("#libros").innerHTML=LIBROS.map(l=>`<article class="libro" id="l-${l.id}">
+  ${l.cov?`<button class="tapa" type="button" data-src="${IMG(l.cov)}" style="padding:0;cursor:zoom-in"><img loading="lazy" src="${IMG(l.cov)}" alt="Tapa de ${esc(l.t)}"></button>`:`<div class="tapa sin">${esc(l.t)}</div>`}
+  <p class="mono muted">${l.y} · libro ${l.ord}</p><h3>${esc(l.t)}</h3><p class="muted" style="font-size:.9rem">${esc(l.ed)}</p><p>${esc(l.d)}</p></article>`).join("");
+$$("#libros .tapa[data-src]").forEach(b=>b.addEventListener("click",()=>verGrande(b.dataset.src)));
+$("#ineditos tbody").innerHTML=INEDITOS.map(r=>`<tr><td>${esc(r[0])}</td><td class="n">${r[1]}</td><td class="muted">${esc(r[2])}</td></tr>`).join("");
+$("#sobre tbody").innerHTML=SOBRE.map(r=>`<tr><td><i>${esc(r[0])}</i></td><td class="muted">${esc(r[1])}. ${esc(r[2])}</td></tr>`).join("");
+$("#prensa tbody").innerHTML=PRENSA.map(r=>`<tr><td class="n">${r[0]??"s/f"}</td><td>${esc(r[1])}</td><td class="muted">${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("");
+const RECORTES=[["diario-el-dia-de-la-plata-4-del-7-de-1965-nota-i","El Día, 1965"],["revista-jubilee-1965-pag1","Jubilee, 1965"],["articulos-revista-gente-1968","Gente, 1968"],["la-prensa-junio-1969-1","La Prensa, 1969"],["la-nacion-1974","La Nación, 1974"],["clarin-sabugo-1983","Clarín, 1983"],["casas-blancas","Nuestra Arquitectura"],["afiche-vanguardias","Vanguardias, Clarín"],["damian-bayon-la-nacion-95","La Nación, 1995"],["pdf-summa-180-1982","Summa 180, 1982"],["pdf-revista-nuestra-arquitectura-56-521-1984","Nuestra Arquitectura 521"],["pdf-revista-enlace-mexico-2002","Enlace, México, 2002"]];
+$("#recortes").innerHTML=RECORTES.map(([i,t])=>`<figure style="margin:0;display:grid;gap:4px"><button type="button" data-src="${IMG(i)}"><img loading="lazy" src="${IMG(i)}" alt="${esc(t)}"></button><figcaption>${esc(t)}</figcaption></figure>`).join("");
+$$("#recortes button").forEach(b=>b.addEventListener("click",()=>verGrande(b.dataset.src)));
+
+/* pensamiento */
+const nombreObra=id=>(OBRAS.find(o=>o.id===id)||{}).t||id;
+$("#constelacion").innerHTML=CONCEPTOS.map(c=>`<article class="concepto" id="c-${c.id}">
+  <div><h3>${esc(c.t)}</h3><p class="sub">${esc(c.sub)}</p></div>
+  <blockquote>${esc(c.q[0])}<cite>${esc(c.q[1])}</cite></blockquote>
+  <p>${esc(c.d)}</p>
+  <div class="preg"><b>Pregunta abierta</b>${esc(c.preg)}</div>
+  <div class="enlaces">${c.obras.map(id=>`<button type="button" data-o="${id}">${esc(nombreObra(id))}</button>`).join("")}${c.libros.map(id=>{const l=LIBROS.find(x=>x.id===id);return `<button type="button" data-l="${id}" style="border-color:var(--vitral)">${esc(l.t.split(/[.?]/)[0])} ${l.y}</button>`}).join("")}</div>
+</article>`).join("");
+$$("#constelacion [data-o]").forEach(b=>b.addEventListener("click",()=>location.hash="obra-"+b.dataset.o));
+$$("#constelacion [data-l]").forEach(b=>b.addEventListener("click",()=>{location.hash="escritos";setTimeout(()=>document.getElementById("l-"+b.dataset.l)?.scrollIntoView({block:"center"}),60)}));
+const FIL=["diapositiva1","diapositiva2","diapositiva10","diapositiva30","diapositiva50","diapositiva70","universo-bloque","sueno-americano","posmodernidad","estructuralismo","formafunciongotico","formafuncionpaleocristiano","formalismo","filmina-estallido-cultura-europea","filmina-libro1","filmina-libro-40","filmina-libro-80","filmina-libro-100","pdf-del-espacio-vacio-y-el-tiempo","pdf-america-o-el-lugar-del-pliegue-2010"];
+$("#filminas").innerHTML=FIL.map(i=>`<button type="button" data-src="${IMG(i)}"><img loading="lazy" src="${IMG(i)}" alt="Filmina de clase"></button>`).join("");
+$$("#filminas button").forEach(b=>b.addEventListener("click",()=>verGrande(b.dataset.src)));
+
+/* vida */
+$("#cronologia").innerHTML=VIDA.map(v=>`<div><b>${v[0]}</b><span>${esc(v[1])}</span></div>`).join("");
+const RET=[["claudio-caveri-nino-padres-y-hermana","De niño, con sus padres y su hermana"],["claudio-caveri-a-los-20-anos","A los 20 años"],["joven","En Comunidad Tierra"],["mama-y-papa","Delia Puiggari y Claudio en Trujui"],["tea-caveri-segre-petrilli","Con Segre y Petrilli, TEA"],["claudio-1","En sus últimos años"],["nonos","Los nonos"],["ptdc0008","Retrato en la Comunidad"],["foto-arq-caveri-patio-pabellon-olmos","Esteban y Claudio en el pabellón de Olmos"]];
+$("#retratos").innerHTML=RET.map(([i,t])=>`<figure><button type="button" data-src="${IMG(i)}"><img loading="lazy" src="${IMG(i)}" alt="${esc(t)}"></button><figcaption>${esc(t)}</figcaption></figure>`).join("");
+$$("#retratos button").forEach(b=>b.addEventListener("click",()=>verGrande(b.dataset.src)));
+
+/* fondo */
+const ISAD=[
+ ["Código de referencia","AR-CC (propuesto)"],
+ ["Título","Fondo Claudio Caveri, arquitecto"],
+ ["Fechas","1950–2016 (documentos de época 1950–2011; recopilación y registros posteriores 2011–2016)"],
+ ["Nivel de descripción","Fondo"],
+ ["Volumen y soporte","2.619 archivos digitales, 21,9 GB: imágenes TIFF y JPG, PDF, documentos Word, presentaciones PowerPoint, planos CAD (DWG, Cad 32), SketchUp, CorelDRAW y video (MP4, WMV, AVI, MPG, DVD)"],
+ ["Productor","Claudio Caveri (1928–2011); Estudio Caveri; Caveri–Ellis Arquitectos"],
+ ["Historia archivística","Los originales de 1950–1951 se perdieron al morir el padre de Claudio. Desde 2011 Esteban Caveri recopila, digitaliza y redacta fichas de obra (serie Celebrando la obra, 2013; láminas 35×50 cm). Juan Patricio Addesso incorpora el fondo a Senda(s) en 2026."],
+ ["Alcance y contenido","Obra construida y proyectada, concursos, libros y manuscritos, filminas de clase, prensa nacional e internacional, correspondencia con Damián Bayón, fotografía familiar y profesional, registros audiovisuales."],
+ ["Organización","Diez series por tipología y soporte, con numeración de carpetas 001–040 heredada del ordenamiento de Esteban Caveri."],
+ ["Condiciones de acceso","Consulta pública en baja resolución en este sitio. Originales en alta resolución y planos CAD bajo custodia de la familia Caveri."]
+];
+$("#isad").innerHTML=ISAD.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join("");
+const SERIES=[
+ ["OB.TE","Obras · Capillas e iglesias","Capillas- Iglesias",301,1.21],
+ ["OB.VI","Obras · Casas y viviendas","Casas y Viviendas",259,0.92],
+ ["OB.RE","Obras · Casas de retiro y seminarios","Casa de retiros Seminarios",902,6.97],
+ ["OB.CT","Obras · Comunidad Tierra y escuelas","Ex- Comunidad- CoopTierra",63,0.40],
+ ["OB.OP","Obras · Obra pública","obra publica",103,0.15],
+ ["OB.CO","Obras · Concursos","concursos",67,0.04],
+ ["ES","Escritos · libros, apuntes, filminas","Libros y publicaciones",631,3.81],
+ ["PR · FP","Prensa, correspondencia y fotografía personal","Fotografias Articulos y otros",89,0.97],
+ ["DO","Docencia · presentaciones y charlas","Presentaciones PP",121,1.20],
+ ["AV","Audiovisual","videos",14,5.29],
+ ["—","Sin clasificar (raíz) y carpeta 35×50","archivos sueltos",69,0.98]
+];
+const maxA=Math.max(...SERIES.map(s=>s[3]));
+$("#arbol").innerHTML=SERIES.map(s=>`<div class="serie"><span class="cod">AR-CC.${s[0]}</span><span>${s[1]}<br><span class="mono muted" style="text-transform:none;letter-spacing:0">/${esc(s[2])}</span></span><span class="cant">${s[3].toLocaleString("es-AR")} arch.</span><span class="cant gb">${s[4].toLocaleString("es-AR",{minimumFractionDigits:2})} GB</span><span class="barra"><i style="width:${(s[3]/maxA*100).toFixed(1)}%"></i></span></div>`).join("");
+$("#charlas tbody").innerHTML=CHARLAS.map(c=>`<tr><td>${esc(c)}</td></tr>`).join("");
+$("#videos tbody").innerHTML=VIDEOS.map(v=>`<tr><td>${esc(v[0])}</td><td class="muted">${esc(v[1])}</td><td class="n">${esc(v[2])}</td></tr>`).join("");
+const NOTAS=[
+ ["Duplicados","Las subcarpetas por concurso se repiten en CONCURSOS; Ex-Comunidad/jpg tiene pares “- copia”; casi todas las imágenes sueltas de la raíz duplican Capillas; dos PDF de la carpeta 35×50 son idénticos (406 MB). Conviene una pasada de deduplicación por suma de verificación antes de migrar."],
+ ["Formatos en riesgo","Planos en Cad 32 (.arq, .blo) y bases .mdb, CorelDRAW (.cdr) y DVD (.vob). Recomendación: exportar a PDF/A y DXF los planos, a SVG o PDF los .cdr y a MP4 H.264 los videos, conservando los originales."],
+ ["Másters y copias de acceso","Los TIFF de 30–115 MB (Boggio Videla, Sosa Pinilla, Estudio Caveri) son los másters. Este sitio publica solo derivados livianos. Falta registrar resolución, fecha y autor de cada digitalización."],
+ ["Datos a completar","Sin fecha ni ubicación: casas Wissengrad y Bebe Ricci, concurso Goethe, casa Ellis. La reforma de la capilla del Colegio Máximo y la de Gerli no tienen planos en el fondo."],
+ ["Atribuciones","Distinguir obra de Claudio Caveri, de Caveri–Ellis y del Estudio Caveri con Esteban Caveri, Jorge Criscuolo y Alejandro Faillace. El diploma de socio honorario de la SCA (2006) lleva el nombre de Claudio José Caveri, el padre: verificar a quién se otorgó."],
+ ["Archivos de sistema","Thumbs.db, ehthumbs_vista.db, archivos de bloqueo de AutoCAD (.dwl) y un .tmp de 63 MB en Ex-Comunidad pueden eliminarse del fondo de preservación."]
+];
+$("#notas").innerHTML=NOTAS.map(([a,b])=>`<div class="nota"><b>${a}</b><p style="font-size:.97rem">${esc(b)}</p></div>`).join("");
+$("#encuentros tbody").innerHTML=ENCUENTROS.map(e=>`<tr><td class="n">${e[0]}</td><td>${esc(e[1])}</td></tr>`).join("");
+
+/* búsqueda */
+const IDX=[
+ ...OBRAS.map(o=>({k:"Obra",t:o.t,s:o.yl+" · "+o.lugar,h:"#obra-"+o.id,x:[o.t,o.alt,o.lugar,o.aut,o.txt,o.yl].join(" ")})),
+ ...LIBROS.map(l=>({k:"Libro",t:l.t,s:l.y+" · "+l.ed,h:"#escritos",x:[l.t,l.ed,l.d,l.y].join(" ")})),
+ ...CONCEPTOS.map(c=>({k:"Idea",t:c.t,s:c.sub,h:"#pensamiento",x:[c.t,c.sub,c.d,c.q[0],c.preg].join(" ")})),
+ ...PRENSA.map(p=>({k:"Prensa",t:p[1],s:(p[0]||"s/f")+" · "+p[3],h:"#escritos",x:p.join(" ")})),
+ ...VIDA.map(v=>({k:"Vida",t:String(v[0]),s:v[1],h:"#vida",x:v.join(" ")})),
+ ...CHARLAS.map(c=>({k:"Charla",t:c,s:"Presentaciones PP",h:"#fondo",x:c}))
+];
+const norm=s=>String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+IDX.forEach(i=>i.n=norm(i.x));
+const q=$("#q"), R=$("#resultados");
+q.addEventListener("input",()=>{
+  const t=norm(q.value.trim()); if(t.length<2){R.hidden=true;return;}
+  const ts=t.split(/\s+/); const hits=IDX.filter(i=>ts.every(w=>i.n.includes(w))).slice(0,30);
+  R.innerHTML=hits.length?hits.map(h=>`<a href="${h.h}"><span class="mono muted">${h.k}</span><span><b>${esc(h.t)}</b><br><span class="muted" style="font-size:.9rem">${esc(h.s.slice(0,110))}</span></span></a>`).join(""):`<p class="vacio muted">Nada encontrado para “${esc(q.value)}”.</p>`;
+  R.hidden=false;
+});
+R.addEventListener("click",e=>{if(e.target.closest("a")){R.hidden=true;q.value="";}});
+document.addEventListener("click",e=>{if(!e.target.closest(".buscar")) R.hidden=true;});
+q.addEventListener("keydown",e=>{if(e.key==="Escape"){R.hidden=true;q.blur();}});
+
+ir();
+})();
+</script>
+
+</body>
+</html>
